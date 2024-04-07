@@ -1,0 +1,210 @@
+---
+title: "Global Child Welfare: Analyzing Social Protection Coverage and Parental Loss Across Nations"
+author: "Kelly Bourke Cosgrave"
+date: 04/06/2024
+format:
+  html: 
+    toc: true
+execute:
+  echo: false
+  warning: false
+  message: false
+theme: pulse
+backgroundcolor: white
+editor: visual
+---
+
+## **Introduction**
+
+Children are the key to our future, and ensuring their well-being is a responsibility that transcends borders and cultures. This report is dedicated to shedding light on the vital role of social protection in shaping the lives of children across the globe. [*Within this dashboard, you will find a curated selection of key metrics and indicators, allowing you to explore and understand the dynamics of social protection for children.*]{style="background-color: pink"}
+
+-   proportion of children covered by social protection programs
+-   estimated number of children who have lost at least one parent
+
+***Each visualization serves as a lens through which we can better comprehend the challenges and successes in this critical realm.***
+
+# A Demonstration of the Proportion of Children Covered by Social Protection Accross the Globe
+
+```{r}
+#| label: setup
+#| include: false
+
+# libraries
+library(tidyverse)
+library(plotly)
+
+# data
+
+social_protection_data <- read_csv("Percentage_children_social_protection.csv")
+Children_lost_one_parent <- read_csv("Children_lost_one_parent.csv")
+Big_data <- read_csv("Big_data.csv")
+
+# transformations
+data_2020 <- social_protection_data %>%
+  filter(year == 2020)
+
+map_world <- map_data("world")
+
+map_data_2020 <- map_world %>%
+  full_join(data_2020, by = c("region" = "country"))
+map_data_join <- full_join(data_2020, map_world, by = c("country" = "region"))
+combined_data <- merge(Big_data, social_protection_data, by = "country")
+```
+
+```{r}
+#| fig-cap: "The map highlights notable regional variations in social protection coverage for children. Some regions appear to have higher proportions of covered children, indicating robust social safety nets, while others exhibit lower coverage, signaling potential areas for targeted intervention."
+
+map_data_join <- full_join(data_2020, map_world, by = c("country" = "region"))
+
+ggplot(map_data_join) +
+  aes(x = long, y = lat, group = group, fill = obs_value_1) +
+geom_polygon() +
+ scale_fill_gradient(high = "pink", low = "purple" ) +
+labs(
+  title = "The Proportion of Children Covered by Social Protection per Country",
+  fill = "Percentage Coverage") +
+  theme(
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.background = element_rect(fill = "white", colour = "pink"),  
+    legend.position = "bottom" 
+  )
+```
+
+-   **High Coverage Nations:** Certain nations stand out with [*deep shades*]{style="background-color: violet"}, indicating a high proportion of children covered by social protection. These countries may serve as positive examples, showcasing effective policies and initiatives that can be studied and potentially replicated in regions with lower coverage.
+
+-   **Low Coverage Areas:** Areas with [*lighter shades*]{style="background-color: pink"} signify lower social protection coverage for children. Exploring the underlying factors contributing to these disparities is crucial for policymakers and advocates to address gaps in child welfare systems and enhance overall societal well-being.
+
+# An Exploration into the Nations which have the Lowest Social Protection Coverage Ratio for Children
+
+### *In this section we will review data surrounding the nations with the lowest percentage of children covered by social protection through:*
+
+1.  A bar chart showing the % coverage in the bottom 5 nations
+
+2.  The countries represented geographically on a map
+
+3.  A time series showing the number of children in these countries who have lost at least one parent in the last 20 years
+
+## 1. The Five Nations with the Lowest Social Protection Coverage Ratio for Children
+
+```{r}
+#| fig-cap: "A Glimpse into Inequality: The Five Nations with the Lowest Social Protection Coverage Ratio for Children. This bar chart presents a stark visual comparison of countries at the lower end of the spectrum in providing social protection to children."
+
+lowest_coverage <- social_protection_data %>%
+  arrange(obs_value_1) %>%
+  slice(1:5)
+
+ggplot(lowest_coverage, aes(x = reorder(country, obs_value_1), y = obs_value_1, color = country, group = country)) +
+  geom_bar(stat = "identity", fill = "pink") +
+  labs(title = "The Lowest Recorded Social Protection Coverage Ratio for Children",
+       x = "Country", 
+       y = "Social Protection Coverage Ratio (%)") +
+  theme_minimal()
+```
+
+In the mosaic of global child welfare, certain nations stand out with challenges in providing social protection for their youngest members. ***Afghanistan, Cuba, Eritrea, Mozambique, and Samoa*** find themselves among the five nations grappling with the lowest proportion of children covered by social protection. These countries illuminate the diverse struggles that communities face in safeguarding the well-being of their children. The data on social protection coverage serves as a poignant reminder of the urgent need for targeted efforts and international collaboration to address disparities and uplift vulnerable youth. By acknowledging these challenges, the global community can work collectively to implement effective strategies and interventions that contribute to a brighter and more secure future for children worldwide.
+
+## 2. Countries with the Lowest Ratio of Children Protected Reflected Geogprahically
+
+```{r}
+#| fig-cap: "This map highlights nations where the social safety net for children is alarmingly thin, underscoring regions where the most vulnerable population—children—lack adequate social protection measures."
+
+data_2020 <- social_protection_data %>%
+  filter(year == 2020)
+
+map_world <- map_data("world")
+
+map_data_2020 <- map_world %>%
+  full_join(data_2020, by = c("region" = "country"))
+
+ggplot(data = map_data_2020) +
+  geom_polygon(aes(x = long, y = lat, group = group, fill = obs_value_1,), color = "white", linewidth = 0.2) + 
+  scale_fill_continuous(
+    name = "Coverage",
+    labels = scales::percent_format(scale = 10), 
+    limits = c(0, 10), 
+    breaks = c(2.5, 5, 7.5, 10) 
+  ) +
+  labs(
+    title = "Proportion of Children Covered by Social Protection per Country",
+    subtitle = "Countries with the Lowest Proportion of Children Covered by Social Protection in 2020",
+    fill = "Percentage Coverage") +
+  theme_minimal() +
+  theme(legend.position = "right",
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "white", colour = "pink"))
+```
+
+The color gradient, ranging from *light to dark blue, indicates the levels of coverage*, with darker shades representing higher percentages.
+
+### A few observations can be made:
+
+1.  **Geographical Spread:** There is a global spread in the representation of countries, suggesting that the issue of children's social protection is of worldwide concern.
+
+2.  **Variation in Coverage:** There's noticeable variation in social protection coverage for children. Some countries appear to have very high coverage, while others have significantly lower rates.
+
+3.  **Concentration of Data Points:** It looks like the majority of the countries with the lowest coverage are concentrated in Africa, with some in Asia and the Americas, pointing towards possible regional trends or disparities.
+
+4.  **Data Interpretation:** The map serves as an important tool for identifying regions where children might be at a higher risk due to lack of social protection. It could be instrumental for policymakers, international organizations, and NGOs when planning interventions.
+
+## 3. Number of Children in the Bottom Five Countries who have Lost at Least One Parent Over 20 Years
+
+```{r}
+#| fig-cap: "Decades of Challenge: The Evolving Crisis of Children Losing Parents. This time series graph tracks the heartbreaking trajectory of children who have lost at least one parent over the past 20 years in select countries. Each line represents the escalating or fluctuating numbers, revealing the long-term impact of socio-economic factors, health crises, and conflicts on family structures"
+
+Children_lost_one_parent$year <- as.Date(as.character(Children_lost_one_parent$year), format = "%Y")
+
+filtered_data <- Children_lost_one_parent %>%
+  filter(country %in% c('Afghanistan', 'Cuba', 'Eritrea', 'Mozambique')) %>%
+  mutate(year = as.Date(as.character(year), format = "%Y"))
+
+ggplot(filtered_data, aes(x = year, y = obs_value_2, color = country, group = country)) +
+  geom_line() +  
+  geom_point() +  
+  labs(title = "Number of Children in Those Countries Who Have Lost at Least One Parent",
+       subtitle = "(no data available for Samoa)",
+       x = "Year", y = "Number of Children") +
+  theme_minimal() +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+In tandem with the challenges faced by Afghanistan, Cuba, Eritrea, Mozambique, and Samoa in providing adequate social protection, the somber time series below, spanning from 2000 to 2022 reveals the estimated number of children who have lost at least one parent in these nations. [***The interplay of limited social protection coverage and the ripple effects of parental loss encapsulates the multifaceted struggles within these communities.***]{style="background-color: pink"} Together, these narratives weave a comprehensive tale of the intricate web of challenges faced by children in these regions, emphasizing the critical need for global attention and collaborative efforts to fortify child welfare systems, ensuring a more secure and supportive future for the world's most vulnerable youth.
+
+# Linking Prosperity to Protection: The Interplay Between GDP per Capita and Child Social Safety Nets
+
+```{r}
+#| fig-cap: "This scatter plot illuminates the relationship between a country's economic standing, measured by GDP per capita, and the extent to which it provides social protection coverage for children. Each point represents a country, plotting its economic prosperity against the percentage of children under its social safety umbrella."
+
+combined_data <- merge(Big_data, social_protection_data, by = "country")
+
+ggplot(combined_data, aes(x = `GDP_per_capita`, y = `obs_value_1`, color = GDP_per_capita)) +
+  geom_point(alpha = 0.5, size =1.5) + 
+  scale_color_gradient(low = "purple", high = "pink")+
+  scale_x_continuous(
+    limits = c(0,12000),
+    breaks = c(3000, 6000, 9000, 12000),
+    labels = scales::unit_format(unit = "K", scale = 0.001)
+  ) +
+  theme_light() +
+  labs(x = "GDP per Capita", y = "% of Children Covered", 
+       title = "Relationship between GDP per Capita and Children Covered by Social Protection") +
+    geom_smooth(method = "lm", color = "pink", se = FALSE) 
+```
+
+In this illuminating scatter plot, a discernible ***positive relationship*** emerges between a country's GDP per capita and the percentage of children covered by social protection. As GDP per capita increases, there is a gradual and optimistic rise in the proportion of children benefiting from social protection measures. [This observation signifies that, in general, economically prosperous nations tend to allocate resources towards robust social safety nets for their youth.]{style="background-color: violet"} This positive correlation emphasizes the pivotal role economic well-being plays in shaping comprehensive social protection policies for children. Understanding and leveraging this relationship allows for more informed policymaking, as nations strive to not only bolster their economic foundations but also ensure the holistic well-being of the youngest members of society, laying the groundwork for a more secure and prosperous future.
+
+### In Conclusion
+
+In concluding this exploration into global child welfare, the poignant narratives of social protection coverage and parental loss underscore the need for collective action. Examining nations such as Afghanistan, Cuba, Eritrea, Mozambique, and Samoa reveals not only the challenges arising from limited social protection but also the profound impact of parental loss on young lives. Amidst these complexities, the dashboard illuminates a positive relationship between child social protection and both GDP per capita across countries. This correlation accentuates the interconnected dynamics between economic prosperity and the well-being of our future generations. As we navigate through the data, it becomes evident that prioritizing and fortifying child welfare initiatives globally is not only a moral obligation but also a strategic investment in building resilient, healthy, and prosperous societies.
+
+**This report serves as a catalyst for informed decision-making, encouraging collaborative efforts to ensure a world where every child is afforded the opportunity to thrive and contribute to a brighter future.**

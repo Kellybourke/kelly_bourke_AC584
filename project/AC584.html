@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kelly Bourke Cosgrave">
+<meta name="dcterms.date" content="2024-04-06">
+
+<title>Global Child Welfare: Analyzing Social Protection Coverage and Parental Loss Across Nations</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="AC584_files/libs/clipboard/clipboard.min.js"></script>
+<script src="AC584_files/libs/quarto-html/quarto.js"></script>
+<script src="AC584_files/libs/quarto-html/popper.min.js"></script>
+<script src="AC584_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="AC584_files/libs/quarto-html/anchor.min.js"></script>
+<link href="AC584_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="AC584_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="AC584_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="AC584_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="AC584_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><strong>Introduction</strong></a></li>
+  <li><a href="#a-demonstration-of-the-proportion-of-children-covered-by-social-protection-accross-the-globe" id="toc-a-demonstration-of-the-proportion-of-children-covered-by-social-protection-accross-the-globe" class="nav-link" data-scroll-target="#a-demonstration-of-the-proportion-of-children-covered-by-social-protection-accross-the-globe">A Demonstration of the Proportion of Children Covered by Social Protection Accross the Globe</a></li>
+  <li><a href="#an-exploration-into-the-nations-which-have-the-lowest-social-protection-coverage-ratio-for-children" id="toc-an-exploration-into-the-nations-which-have-the-lowest-social-protection-coverage-ratio-for-children" class="nav-link" data-scroll-target="#an-exploration-into-the-nations-which-have-the-lowest-social-protection-coverage-ratio-for-children">An Exploration into the Nations which have the Lowest Social Protection Coverage Ratio for Children</a>
+  <ul class="collapse">
+  <li><a href="#in-this-section-we-will-review-data-surrounding-the-nations-with-the-lowest-percentage-of-children-covered-by-social-protection-through" id="toc-in-this-section-we-will-review-data-surrounding-the-nations-with-the-lowest-percentage-of-children-covered-by-social-protection-through" class="nav-link" data-scroll-target="#in-this-section-we-will-review-data-surrounding-the-nations-with-the-lowest-percentage-of-children-covered-by-social-protection-through"><em>In this section we will review data surrounding the nations with the lowest percentage of children covered by social protection through:</em></a></li>
+  <li><a href="#the-five-nations-with-the-lowest-social-protection-coverage-ratio-for-children" id="toc-the-five-nations-with-the-lowest-social-protection-coverage-ratio-for-children" class="nav-link" data-scroll-target="#the-five-nations-with-the-lowest-social-protection-coverage-ratio-for-children">1. The Five Nations with the Lowest Social Protection Coverage Ratio for Children</a></li>
+  <li><a href="#countries-with-the-lowest-ratio-of-children-protected-reflected-geogprahically" id="toc-countries-with-the-lowest-ratio-of-children-protected-reflected-geogprahically" class="nav-link" data-scroll-target="#countries-with-the-lowest-ratio-of-children-protected-reflected-geogprahically">2. Countries with the Lowest Ratio of Children Protected Reflected Geogprahically</a>
+  <ul class="collapse">
+  <li><a href="#a-few-observations-can-be-made" id="toc-a-few-observations-can-be-made" class="nav-link" data-scroll-target="#a-few-observations-can-be-made">A few observations can be made:</a></li>
+  </ul></li>
+  <li><a href="#number-of-children-in-the-bottom-five-countries-who-have-lost-at-least-one-parent-over-20-years" id="toc-number-of-children-in-the-bottom-five-countries-who-have-lost-at-least-one-parent-over-20-years" class="nav-link" data-scroll-target="#number-of-children-in-the-bottom-five-countries-who-have-lost-at-least-one-parent-over-20-years">3. Number of Children in the Bottom Five Countries who have Lost at Least One Parent Over 20 Years</a></li>
+  </ul></li>
+  <li><a href="#linking-prosperity-to-protection-the-interplay-between-gdp-per-capita-and-child-social-safety-nets" id="toc-linking-prosperity-to-protection-the-interplay-between-gdp-per-capita-and-child-social-safety-nets" class="nav-link" data-scroll-target="#linking-prosperity-to-protection-the-interplay-between-gdp-per-capita-and-child-social-safety-nets">Linking Prosperity to Protection: The Interplay Between GDP per Capita and Child Social Safety Nets</a>
+  <ul class="collapse">
+  <li><a href="#in-conclusion" id="toc-in-conclusion" class="nav-link" data-scroll-target="#in-conclusion">In Conclusion</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Global Child Welfare: Analyzing Social Protection Coverage and Parental Loss Across Nations</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kelly Bourke Cosgrave </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 6, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction"><strong>Introduction</strong></h2>
+<p>Children are the key to our future, and ensuring their well-being is a responsibility that transcends borders and cultures. This report is dedicated to shedding light on the vital role of social protection in shaping the lives of children across the globe. <span style="background-color: pink"><em>Within this dashboard, you will find a curated selection of key metrics and indicators, allowing you to explore and understand the dynamics of social protection for children.</em></span></p>
+<ul>
+<li>proportion of children covered by social protection programs</li>
+<li>estimated number of children who have lost at least one parent</li>
+</ul>
+<p><strong><em>Each visualization serves as a lens through which we can better comprehend the challenges and successes in this critical realm.</em></strong></p>
+</section>
+<section id="a-demonstration-of-the-proportion-of-children-covered-by-social-protection-accross-the-globe" class="level1">
+<h1>A Demonstration of the Proportion of Children Covered by Social Protection Accross the Globe</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AC584_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>The map highlights notable regional variations in social protection coverage for children. Some regions appear to have higher proportions of covered children, indicating robust social safety nets, while others exhibit lower coverage, signaling potential areas for targeted intervention.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p><strong>High Coverage Nations:</strong> Certain nations stand out with <span style="background-color: violet"><em>deep shades</em></span>, indicating a high proportion of children covered by social protection. These countries may serve as positive examples, showcasing effective policies and initiatives that can be studied and potentially replicated in regions with lower coverage.</p></li>
+<li><p><strong>Low Coverage Areas:</strong> Areas with <span style="background-color: pink"><em>lighter shades</em></span> signify lower social protection coverage for children. Exploring the underlying factors contributing to these disparities is crucial for policymakers and advocates to address gaps in child welfare systems and enhance overall societal well-being.</p></li>
+</ul>
+</section>
+<section id="an-exploration-into-the-nations-which-have-the-lowest-social-protection-coverage-ratio-for-children" class="level1">
+<h1>An Exploration into the Nations which have the Lowest Social Protection Coverage Ratio for Children</h1>
+<section id="in-this-section-we-will-review-data-surrounding-the-nations-with-the-lowest-percentage-of-children-covered-by-social-protection-through" class="level3">
+<h3 class="anchored" data-anchor-id="in-this-section-we-will-review-data-surrounding-the-nations-with-the-lowest-percentage-of-children-covered-by-social-protection-through"><em>In this section we will review data surrounding the nations with the lowest percentage of children covered by social protection through:</em></h3>
+<ol type="1">
+<li><p>A bar chart showing the % coverage in the bottom 5 nations</p></li>
+<li><p>The countries represented geographically on a map</p></li>
+<li><p>A time series showing the number of children in these countries who have lost at least one parent in the last 20 years</p></li>
+</ol>
+</section>
+<section id="the-five-nations-with-the-lowest-social-protection-coverage-ratio-for-children" class="level2">
+<h2 class="anchored" data-anchor-id="the-five-nations-with-the-lowest-social-protection-coverage-ratio-for-children">1. The Five Nations with the Lowest Social Protection Coverage Ratio for Children</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AC584_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>A Glimpse into Inequality: The Five Nations with the Lowest Social Protection Coverage Ratio for Children. This bar chart presents a stark visual comparison of countries at the lower end of the spectrum in providing social protection to children.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In the mosaic of global child welfare, certain nations stand out with challenges in providing social protection for their youngest members. <strong><em>Afghanistan, Cuba, Eritrea, Mozambique, and Samoa</em></strong> find themselves among the five nations grappling with the lowest proportion of children covered by social protection. These countries illuminate the diverse struggles that communities face in safeguarding the well-being of their children. The data on social protection coverage serves as a poignant reminder of the urgent need for targeted efforts and international collaboration to address disparities and uplift vulnerable youth. By acknowledging these challenges, the global community can work collectively to implement effective strategies and interventions that contribute to a brighter and more secure future for children worldwide.</p>
+</section>
+<section id="countries-with-the-lowest-ratio-of-children-protected-reflected-geogprahically" class="level2">
+<h2 class="anchored" data-anchor-id="countries-with-the-lowest-ratio-of-children-protected-reflected-geogprahically">2. Countries with the Lowest Ratio of Children Protected Reflected Geogprahically</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AC584_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>This map highlights nations where the social safety net for children is alarmingly thin, underscoring regions where the most vulnerable population—children—lack adequate social protection measures.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The color gradient, ranging from <em>light to dark blue, indicates the levels of coverage</em>, with darker shades representing higher percentages.</p>
+<section id="a-few-observations-can-be-made" class="level3">
+<h3 class="anchored" data-anchor-id="a-few-observations-can-be-made">A few observations can be made:</h3>
+<ol type="1">
+<li><p><strong>Geographical Spread:</strong> There is a global spread in the representation of countries, suggesting that the issue of children’s social protection is of worldwide concern.</p></li>
+<li><p><strong>Variation in Coverage:</strong> There’s noticeable variation in social protection coverage for children. Some countries appear to have very high coverage, while others have significantly lower rates.</p></li>
+<li><p><strong>Concentration of Data Points:</strong> It looks like the majority of the countries with the lowest coverage are concentrated in Africa, with some in Asia and the Americas, pointing towards possible regional trends or disparities.</p></li>
+<li><p><strong>Data Interpretation:</strong> The map serves as an important tool for identifying regions where children might be at a higher risk due to lack of social protection. It could be instrumental for policymakers, international organizations, and NGOs when planning interventions.</p></li>
+</ol>
+</section>
+</section>
+<section id="number-of-children-in-the-bottom-five-countries-who-have-lost-at-least-one-parent-over-20-years" class="level2">
+<h2 class="anchored" data-anchor-id="number-of-children-in-the-bottom-five-countries-who-have-lost-at-least-one-parent-over-20-years">3. Number of Children in the Bottom Five Countries who have Lost at Least One Parent Over 20 Years</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AC584_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Decades of Challenge: The Evolving Crisis of Children Losing Parents. This time series graph tracks the heartbreaking trajectory of children who have lost at least one parent over the past 20 years in select countries. Each line represents the escalating or fluctuating numbers, revealing the long-term impact of socio-economic factors, health crises, and conflicts on family structures</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In tandem with the challenges faced by Afghanistan, Cuba, Eritrea, Mozambique, and Samoa in providing adequate social protection, the somber time series below, spanning from 2000 to 2022 reveals the estimated number of children who have lost at least one parent in these nations. <span style="background-color: pink"><strong><em>The interplay of limited social protection coverage and the ripple effects of parental loss encapsulates the multifaceted struggles within these communities.</em></strong></span> Together, these narratives weave a comprehensive tale of the intricate web of challenges faced by children in these regions, emphasizing the critical need for global attention and collaborative efforts to fortify child welfare systems, ensuring a more secure and supportive future for the world’s most vulnerable youth.</p>
+</section>
+</section>
+<section id="linking-prosperity-to-protection-the-interplay-between-gdp-per-capita-and-child-social-safety-nets" class="level1">
+<h1>Linking Prosperity to Protection: The Interplay Between GDP per Capita and Child Social Safety Nets</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AC584_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>This scatter plot illuminates the relationship between a country’s economic standing, measured by GDP per capita, and the extent to which it provides social protection coverage for children. Each point represents a country, plotting its economic prosperity against the percentage of children under its social safety umbrella.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In this illuminating scatter plot, a discernible <strong><em>positive relationship</em></strong> emerges between a country’s GDP per capita and the percentage of children covered by social protection. As GDP per capita increases, there is a gradual and optimistic rise in the proportion of children benefiting from social protection measures. <span style="background-color: violet">This observation signifies that, in general, economically prosperous nations tend to allocate resources towards robust social safety nets for their youth.</span> This positive correlation emphasizes the pivotal role economic well-being plays in shaping comprehensive social protection policies for children. Understanding and leveraging this relationship allows for more informed policymaking, as nations strive to not only bolster their economic foundations but also ensure the holistic well-being of the youngest members of society, laying the groundwork for a more secure and prosperous future.</p>
+<section id="in-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="in-conclusion">In Conclusion</h3>
+<p>In concluding this exploration into global child welfare, the poignant narratives of social protection coverage and parental loss underscore the need for collective action. Examining nations such as Afghanistan, Cuba, Eritrea, Mozambique, and Samoa reveals not only the challenges arising from limited social protection but also the profound impact of parental loss on young lives. Amidst these complexities, the dashboard illuminates a positive relationship between child social protection and both GDP per capita across countries. This correlation accentuates the interconnected dynamics between economic prosperity and the well-being of our future generations. As we navigate through the data, it becomes evident that prioritizing and fortifying child welfare initiatives globally is not only a moral obligation but also a strategic investment in building resilient, healthy, and prosperous societies.</p>
+<p><strong>This report serves as a catalyst for informed decision-making, encouraging collaborative efforts to ensure a world where every child is afforded the opportunity to thrive and contribute to a brighter future.</strong></p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
